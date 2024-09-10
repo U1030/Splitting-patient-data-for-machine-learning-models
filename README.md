@@ -8,6 +8,24 @@ Add the pipeline path to sys.path so that your python compilator find all the mo
 python add_pipeline_path.py /home/user/my_project/pipeline
 ```
 
+### Usage
+
+execute main.py 
+
+inputs : 
+
+- path to your data in csv format, must contain column 'patient_id' and 'label'
+- method : 'pl','genetic','greedy'
+
+default for genetic :
+
+- population_size = 100,
+- nb_generations = 500,
+- elite_size_ratio = 0.3
+
+output : X_train, y_train,X_test,y_test as panda dataframes
+
+
 ### Problematic
 
 To train and validate machine learning models, we needed to split patient data into training and testing sets while avoiding patient bias. Patient bias occurs when data from the same patient is divided between training and testing sets, potentially skewing results. This bias arises because the model might learn patient-specific characteristics rather than generalizable features, leading to overestimation of the model’s performance. Ensuring that no patient’s lesions are split across the sets and maintaining balanced class ratios is a non-trivial problem.
